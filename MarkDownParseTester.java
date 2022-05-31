@@ -24,4 +24,15 @@ public class MarkDownParseTester {
 
         
     }
+
+    @Test
+    public void testSnippet2() throws IOException
+    {
+        List<String> expected = List.of("[a nested link](b.com)","a nested parenthesized url","some escaped [ brackets ]");
+        String contents = Files.readString(Path.of("Snippet-2.md"));
+        assertEquals(MarkDownParse.getLinks(contents),expected);
+        
+
+        
+    }
 }
