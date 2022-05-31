@@ -35,4 +35,15 @@ public class MarkDownParseTester {
 
         
     }
+
+    @Test
+    public void testSnippet3() throws IOException
+    {
+        List<String> expected = List.of("[this title text is really long and takes up more than one line and has some line breaks]( https://www.twitter.com )","this title text is really long and takes up more than one line","[this link doesn't have a closing parenthesis](github.com And there's still some more text after that.","[this link doesn't have a closing parenthesis for a while](https://cse.ucsd.edu/ ) And then there's more text");
+        String contents = Files.readString(Path.of("Snippet-3.md"));
+        assertEquals(MarkDownParse.getLinks(contents),expected);
+        
+
+        
+    }
 }
