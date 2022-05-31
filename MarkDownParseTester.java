@@ -19,7 +19,7 @@ public class MarkDownParseTester {
     {
         List<String> expected = List.of( "[a link](url.com)","[a link](url.com)","cod[e","code]");
         String contents = Files.readString(Path.of("Snippet-1.md"));
-        assertEquals(MarkDownParse.getLinks(contents),expected);
+        assertEquals(OtherMarkdownParse.getLinks(contents),expected);
         
 
         
@@ -30,7 +30,7 @@ public class MarkDownParseTester {
     {
         List<String> expected = List.of("[a nested link](b.com)","a nested parenthesized url","some escaped [ brackets ]");
         String contents = Files.readString(Path.of("Snippet-2.md"));
-        assertEquals(MarkDownParse.getLinks(contents),expected);
+        assertEquals(OtherMarkdownParse.getLinks(contents),expected);
         
 
         
@@ -41,7 +41,7 @@ public class MarkDownParseTester {
     {
         List<String> expected = List.of("[this title text is really long and takes up more than one line and has some line breaks]( https://www.twitter.com )","this title text is really long and takes up more than one line","[this link doesn't have a closing parenthesis](github.com And there's still some more text after that.","[this link doesn't have a closing parenthesis for a while](https://cse.ucsd.edu/ ) And then there's more text");
         String contents = Files.readString(Path.of("Snippet-3.md"));
-        assertEquals(MarkDownParse.getLinks(contents),expected);
+        assertEquals(OtherMarkdownParse.getLinks(contents),expected);
         
 
         
