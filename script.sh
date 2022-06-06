@@ -1,5 +1,6 @@
 for file in test-files/*.md;
-do
+do:wq
+::
   echo $file
   java MarkdownParse $file
 done
